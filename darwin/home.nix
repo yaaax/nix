@@ -57,6 +57,17 @@
   programs.home-manager.enable = true;
 
   programs = {
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        dark = true;
+        file-style = "#efefef bold darkblue";
+        file-decoration-style = "#efefef ul ol";
+        minus-style = "red bold auto";
+        plus-style = "green bold #114411";
+      };
+    };
     google-chrome = {
       enable = true;
     };
@@ -86,23 +97,17 @@
     # };
 
     git = {
-      aliases = {
-        co = "checkout";
-        oops = "commit --amend --no-edit";
-      };
       enable = true;
-      extraConfig = {
+      settings = {
+        alias = {
+          co = "checkout";
+          oops = "commit --amend --no-edit";
+        };
         pull.ff = "only";
         stash.showPatch = true;
-      };
-      userEmail = "yaacov@goodimpact.studio";
-      userName = "Yaacov";
-      delta = {
-        enable = true;
-        options = {
-          dark = true;
-          minus-style = "red bold auto";
-          plus-style = "green bold #114411";
+        user = {
+          email = "yaacov@goodimpact.studio";
+          userName = "Yaacov";
         };
       };
     };
@@ -144,12 +149,14 @@
               "source.fixAll" = "explicit";
             };
             "editor.defaultFormatter" = "dbaeumer.vscode-eslint";
+            "editor.minimap.enabled" = false;
             "editor.rulers" = [80];
             "files.associations" = {
               "*.json" = "jsonc";
             };
             "files.autoSave" = "off";
             "javascript.format.enable" = false;
+            "task.allowAutomaticTasks" = "off";
             "terminal.integrated.fontFamily" = "MesloLGM Nerd Font";
             "typescript.preferences.importModuleSpecifier" = "relative";
             "typescript.tsserver.experimental.enableProjectDiagnostics" = true;
@@ -161,8 +168,10 @@
             dreamcatcher45.podmanager
             eamodio.gitlens
             esbenp.prettier-vscode
+            firefox-devtools.vscode-firefox-debug
             github.vscode-github-actions
             ms-azuretools.vscode-containers
+            prisma.prisma
             ritwickdey.liveserver
             tamasfe.even-better-toml
             possan.nbsp-vscode

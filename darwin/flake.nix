@@ -79,7 +79,7 @@
           gh
           libreoffice-bin
           mkalias
-          neofetch
+          # neofetch
           nur
           oh-my-posh
           # signal-desktop // not working 06/05/2025
